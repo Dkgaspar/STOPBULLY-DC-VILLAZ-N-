@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informac</title>
+    <style>
+@font-face {
+    font-family: 'Caveat';
+    src: url('WnznHAc5bAfYB2QRah7pcpNvOx-pjfJ9SIKjZhxO.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aX9-obK4.ttf') format('truetype'),
+         url('fonts/TU_ARCHIVO_DE_FUENTE_MONTSERRAT-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Caveat', serif;
+}
+
+.next-button, .prev-button, .menu-button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+        .Container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .Picture {
+            width: 300px;
+            height: 620px;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .Picture-img {
+            width: 100%;
+            height: auto;
+            max-height: 40%;
+            object-fit: cover;
+        }
+
+        .Picture-note {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 24px;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Distribuir los elementos en el contenedor */
+            align-items: center; /* Centrar verticalmente los elementos */
+            margin-top: 20px;
+        }
+
+        .button-group {
+            display: flex;
+        }
+
+        .prev-button, .next-button {
+            margin-right: 10px;
+        }
+
+        .menu-button {
+            margin-top: 0; /* Reiniciar el margen superior */
+        }
+
+        .next-button, .prev-button {
+            background-color: red;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .next-button:hover, .prev-button:hover {
+            background-color: darkred;
+        }
+
+        .menu-button {
+            background-color: green;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .menu-button:hover {
+            background-color: darkgreen;
+        }
+
+        /* Other styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Caveat', serif;
+            overflow: hidden;
+            background: black;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 30px;
+            display: block;
+            text-align: center;
+            color: red;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <div class="Picture">
+            <h1>¿Qué es el bullying?</h1>
+            <img class="Picture-img" src="Imagendelbullying.jpg" alt="Imagen 1" style="width: 100%; height: 35%;">
+            <div class="Picture-note">"El bullying es un comportamiento agresivo repetitivo hacia alguien vulnerable, como insultos, amenazas o exclusión, con el objetivo de causar daño emocional o físico. Sucede en entornos como escuelas o en línea, donde el agresor busca ejercer poder sobre la víctima."</div>
+        </div>
+        <div class="Picture">
+            <h1>Causas del bullying</h1>
+            <img class="Picture-img" src="Causas.jpg" alt="Imagen 2" style="width: 100%; height: 30%;">
+            <div class="Picture-note">
+                "El bullying puede surgir por varias razones, como la falta de empatía, problemas familiares, experiencias de violencia previas, o un entorno escolar o laboral que tolera la agresión. Los acosadores pueden carecer de habilidades sociales adecuadas o sentir que pueden actuar sin consecuencias."
+            </div>
+        </div>
+        <div class="Picture">
+            <h1>Consecuencias</h1>
+            <img class="Picture-img" src="consecuencia1.jpg" alt="Imagen 2" style="width: 100%; height: 30%;">
+            <div class="Picture-note">"Las consecuencias del bullying pueden ser graves y variadas, incluyendo problemas emocionales como ansiedad, depresión y baja autoestima. También puede afectar el rendimiento académico, causar problemas de salud física y llevar a comportamientos autodestructivos o incluso al suicidio."</div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <div class="button-group">
+            <button class="prev-button">Anterior</button>
+            <button class="next-button">Siguiente</button>
+        </div>
+        <a href="menú.html" class="menu-button">Menú</a>
+    </div>
+
+    <script>
+        const pictures = document.querySelectorAll('.Picture');
+        let currentPictureIndex = 0;
+        const nextButton = document.querySelector('.next-button');
+        const prevButton = document.querySelector('.prev-button');
+        const menuButton = document.querySelector('.menu-button');
+
+        function showPicture(index) {
+            pictures.forEach((picture, i) => {
+                if (i === index) {
+                    picture.style.display = 'block';
+                } else {
+                    picture.style.display = 'none';
+                }
+            });
+            if (index === 0) {
+                prevButton.style.display = 'none';
+            } else {
+                prevButton.style.display = 'block'; 
+            }
+            if (index === pictures.length - 1) {
+                nextButton.style.display = 'none';
+                menuButton.style.display = 'block';
+            } else {
+                nextButton.style.display = 'block'; 
+                menuButton.style.display = 'none'; 
+            }
+        }
+
+        nextButton.addEventListener('click', function() {
+            currentPictureIndex = (currentPictureIndex + 1) % pictures.length;
+            showPicture(currentPictureIndex);
+        });
+
+        prevButton.addEventListener('click', function() {
+            currentPictureIndex = (currentPictureIndex - 1 + pictures.length) % pictures.length;
+            showPicture(currentPictureIndex);
+        });
+
+       // no olvidarme.Función para mostrar el primer cuadro al cargar la página
+        showPicture(currentPictureIndex);
+    </script>
+</body>
+</html>

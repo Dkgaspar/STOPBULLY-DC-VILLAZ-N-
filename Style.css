@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#options button {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#message {
+  margin-top: 10px;
+}
+
+#check-btn {
+  margin-top: 10px;
+  background-color: yellow;/* Color naranja */
+  color: black; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer;
+}
+
+#check-btn:hover {
+  background-color: #e64a19; /* Cambio de color al pasar el mouse */
+}
+
+#question {
+  text-align: center; /* Centra el texto */
+}
+
+#question h2 {
+  color: #3366ff; /* Color azul */
+}
+
+#question img {
+  max-width: 90%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
+  height: 60%; /* Mantén la proporción de aspecto de la imagen */
+  display: block;
+  margin-top: 20px; /* Agrega un poco de espacio encima de la imagen */
+  margin-left: auto; /* Centra la imagen horizontalmente */
+  margin-right: auto; /* Centra la imagen horizontalmente */
+}

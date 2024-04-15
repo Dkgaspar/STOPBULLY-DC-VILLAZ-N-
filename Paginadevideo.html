@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('fondo de video5.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .video {
+            margin-bottom: 20px;
+            text-align: center;
+            display: none; 
+        }
+        .video.active {
+            display: block; 
+        }
+        #nav-btns-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .nav-btn {
+            background-color:green; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; 
+            margin-bottom: 10px;
+        }
+        .nav-btn:last-child {
+            margin-bottom: 0;
+        }
+        .nav-btn:hover {
+            background-color: brown;
+        }
+        #otra-pagina-btn {
+            background-color: brown; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; 
+            margin-bottom: 10px;
+        }
+        #otra-pagina-btn:hover {
+            background-color: #23527c;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <div class="video active">
+            <h2>Conversemos sobre el bullying</h2>
+            <video width="320" height="240" controls>
+                <source src="video1.webm" type="video/mp4">
+            </video>
+        </div>
+        <div class="video">
+            <h2>Como prevenir el bullying en el aula</h2>
+            <video width="320" height="240" controls>
+                <source src="video2.webm" type="video/mp4">
+            </video>
+        </div>
+        <div class="video">
+            <h2>Cuales son las causas de que alguien haga bullying a otros</h2>
+            <video width="320" height="240" controls>
+                <source src="video3.webm" type="video/mp4">
+            </video>
+        </div>
+        <div class="video">
+            <h2>TIPOS DE BULLYING</h2>
+            <video width="320" height="240" controls>
+                <source src="Tipos.webm" type="video/mp4">
+            </video>
+        </div>
+        <div id="nav-btns-container">
+            <button class="nav-btn" id="prev-btn" onclick="showPrevious()">Anterior</button>
+            <button class="nav-btn" id="next-btn" onclick="showNext()">Siguiente</button>
+            <button id="otra-pagina-btn" onclick="goToMenu()">Volver a menú</button>
+        </div>
+    </div>
+
+    <script>
+        const videos = document.querySelectorAll('.video');
+        let currentVideoIndex = 0;
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const menuBtn = document.getElementById('otra-pagina-btn');
+
+        function showVideo(index) {
+            videos.forEach((video, idx) => {
+                if (idx === index) {
+                    video.classList.add('active');
+                } else {
+                    video.classList.remove('active');
+                }
+            });
+        }
+
+        function showPrevious() {
+            currentVideoIndex = Math.max(currentVideoIndex - 1, 0);
+            showVideo(currentVideoIndex);
+            updateNavButtons();
+        }
+
+        function showNext() {
+            currentVideoIndex = Math.min(currentVideoIndex + 1, videos.length - 1);
+            showVideo(currentVideoIndex);
+            updateNavButtons();
+        }
+
+        function goToMenu() {
+            window.location.href = 'menú.html'; 
+        }
+
+        function updateNavButtons() {
+            prevBtn.style.display = currentVideoIndex === 0 ? 'none' : 'block';
+            nextBtn.style.display = currentVideoIndex === videos.length - 1 ? 'none' : 'block';
+            menuBtn.style.display = currentVideoIndex === videos.length - 1 ? 'block' : 'none';
+        }
+
+        updateNavButtons(); // Actualiza el estado inicial de los botones de navegación
+    </script>
+</body>
+</html>

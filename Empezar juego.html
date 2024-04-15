@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boton de inicio de juego</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: white;
+      font-family: Arial, sans-serif; 
+      background-image: url('fondo de empezar_3.jpg');
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin: 0 10px; /* Espacio entre los botones */
+    }
+
+    button.start {
+      background-color: brown; 
+    }
+
+    button.other {
+      background-color: brown;
+    }
+
+    button img {
+      vertical-align: middle;
+      margin-right: 5px; 
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button class="start" onclick="goToPage('JUEGODEPREGUNTAS.html')"><img src="logo_empezar.jpg" alt="Logo" width="20px" height="20px">EMPEZAR</button>
+    <button class="other" onclick="goToPage('menú.html')"><img src="logo_menu.jpg" alt="Logo" width="20px" height="20px">Volver</button>
+  </div>
+
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
